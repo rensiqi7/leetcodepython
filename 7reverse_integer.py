@@ -4,14 +4,11 @@ class Solution:
         :type x: int
         :rtype: int
         """
-        ls = list(str(x))
-        ch = ls.pop(0)
-        if ch == "+" or ch == "-":
-            ls.append(ch)
+        if x < 0:
+            y = -1 * int(str(-x)[::-1])
         else:
-            ls.insert(0, ch)
-        ls.reverse()
-        result = int("".join(ls))
-        if result > 2147483647 or result < -2147483648:
-            result = 0
-        return result
+            y = int(str(x)[::-1])
+
+        if y > 2**31 or y < -2**31:
+            y = 0
+        return y
