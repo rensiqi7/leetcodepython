@@ -22,3 +22,17 @@ class Solution:
             else:
                 ans += hmap[s[i]]
         return ans
+        """
+        table=[['M',1000],['CM',900],['D',500],['CD',400],['C',100],['XC',90],['L',50],['XL',40],['X',10],['IX',9],['V',5],['IV',4],['I',1]]
+        returnint=0
+        for pair in table:
+            continueyes=True
+            while continueyes:
+                if len(s)>=len(pair[0]):
+                    if s[0:len(pair[0])]==pair[0]:
+                        returnint+=pair[1]
+                        s=s[len(pair[0]):]
+                    else: continueyes=False
+                else: continueyes=False
+        return returnint
+        """
