@@ -30,6 +30,7 @@ class Solution:
         nm = (l1 + l2) // 2 + 1
 
         nl = 0
+        ret0 = 0
         li1 = 0
         li2 = 0
 
