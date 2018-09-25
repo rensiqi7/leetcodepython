@@ -14,7 +14,6 @@ class Solution(object):
     def dfs(self, nums, curr, idx, visited, result):
         l_nums = len(nums)
         result.append(list(curr))
-
         for i in range(idx, l_nums):
             if i > 0 and nums[i] == nums[i - 1] and visited[i - 1] == 0:
                 continue
