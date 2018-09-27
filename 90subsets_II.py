@@ -4,6 +4,23 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        nums.sort()
+
+        def backtrack(start, temp):
+            res.append(temp[:])
+            for i in range(start, len(nums)):
+                if i != start and nums[i] == nums[i - 1]:
+                    continue
+                temp.append(nums[i])
+                backtrack(i + 1, temp)
+                temp.pop()
+
+        res = []
+        backtrack(0, [])
+        return res
+
+    """
+    def subsetsWithDup(self, nums):
         nums = sorted(nums)
         l_nums = len(nums)
         visited = [0 for _ in range(l_nums)]
@@ -22,21 +39,6 @@ class Solution(object):
             self.dfs(nums, curr, i + 1, visited, result)
             curr.pop()
             visited[i] = 0
-
-    """
-    nums.sort()
-    def backtrack(start, temp):
-        res.append(temp[:])
-        for i in range(start, len(nums)):
-            if i != start and nums[i] == nums[i - 1]:
-                continue
-            temp.append(nums[i])
-            backtrack(i + 1, temp)
-            temp.pop()
-
-    res = []
-    backtrack(0, [])
-    return res
     """
     """
     nums.sort()
