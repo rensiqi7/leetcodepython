@@ -11,7 +11,6 @@ class Solution(object):
             return triangle[0][0]
         result[0] = triangle[0][0]
         for i in range(1, len(triangle)):
-
             curarr = triangle[i]
             result[i] = result[i - 1] + curarr[i]
             for j in range(1, i)[::-1]:
