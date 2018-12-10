@@ -12,23 +12,27 @@ class Solution:
         :type n: int
         :rtype: ListNode
         """
+        if not head or not head.next:
+            return None
 
-        ''' first trial. O(L) time, O(L) space complexity.
-        nodes_list = []
-        cursor = head
-        while cursor != None:
-            nodes_list.append(cursor)
-            cursor = cursor.next
+        dummy = ListNode(0)
+        dummy.next = head
 
-        if n == len(nodes_list):
-            head = head.next
-        else :
-            nodes_list[-n-1].next = nodes_list[-n].next
+        slow, quick = dummy, dummy
 
-        return head
-        '''
+        for i in range(n):
+            quick = quick.next
+
+        while quick and quick.next:
+            slow = slow.next
+            quick = quick.next
+
+        slow.next = slow.next.next
+
+        return dummy.next
 
         # second trial after getting a hint from its solution.
+        """
         dummy = ListNode(0)
         dummy.next = head
         target_prev = dummy
@@ -44,3 +48,4 @@ class Solution:
 
         target_prev.next = target_prev.next.next
         return dummy.next
+        """

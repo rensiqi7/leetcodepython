@@ -4,8 +4,12 @@ class Solution:
         :type x: int
         :rtype: bool
         """
-        rev = str(x)[::-1]
-        if(rev == str(x)):
+        if x < 0:
+            return False
+
+        s = str(x)
+
+        if s == s[::-1]:
             return True
         else:
             return False
