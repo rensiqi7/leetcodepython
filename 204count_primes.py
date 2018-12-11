@@ -4,14 +4,14 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        if n < 2:
+        if n < 3:
             return 0
-        s = [1] * n
-        s[0] = s[1] = 0
+        primes = [True] * n
+        primes[0] = primes[1] = False
         for i in range(2, int(n ** 0.5) + 1):
-            if s[i] == 1:
-                s[i * i:n:i] = [0] * (int(n - i * i - 1) / i + 1)
-        return sum(s)
+            if primes[i]:
+                primes[i * i: n: i] = [False] * len(primes[i * i: n: i])
+        return sum(primes)
 
         """
         if n <= 2:
